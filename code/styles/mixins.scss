@@ -1,0 +1,38 @@
+@mixin absoluteBox {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+@mixin clearfix {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin circle($size: 30px) {
+	border-radius: 50%;
+	height: $size;
+	width: $size;
+}
+
+@mixin hiddenText {
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+@mixin person($size: 80px) {
+	width: 80px;
+}
+
+@mixin resetList {
+	display: block;
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,451 @@
+@import "mixins";
+
+$secondaryHighlightColor: #81d4fa;
+$primaryHighlightColor: #ff9800;
+$circleSize: 30px;
+$personWidth: 80px;
+$sidePadding: 10px;
+
+$animationTime: 0.2s;
+
+html,
+body {
+	font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 5px;
+	}
+	::-webkit-scrollbar-button {
+		background-color: rgba(156, 155, 155, 0.5);
+	}
+	::-webkit-scrollbar-track {
+		background-color: rgba(208, 204, 204, 0.1);
+	}
+	::-webkit-scrollbar-track-piece {
+		background-color: rgba(100, 96, 96, 0.3);
+	}
+	::-webkit-scrollbar-thumb {
+		height: 20px;
+		background-color: rgba(124, 122, 122, 0.3);
+		border-radius: 2px;
+	}
+	::-webkit-scrollbar-corner {
+		background-color: rgba(238, 238, 238, 0.3);
+	}
+}
+
+a {
+	color: #2196f3;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.img-circle {
+	border: 0;
+	border-radius: 50%;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+// burder icon
+.navicon {
+	$lineColor: #222;
+	$width: 16px;
+
+	cursor: pointer;
+	display: block;
+	height: 100%;
+	margin-top: -1px;
+	opacity: 0.75;
+	padding: 0;
+	position: relative;
+	top: 50%;
+	transition: transform $animationTime, opacity $animationTime;
+	user-select: none;
+
+	&:hover {
+		opacity: 0.999; // not sure why, but 1 hides pseudo-elements
+	}
+
+	&-lines {
+		background-color: $lineColor;
+		height: 2px;
+		margin: 0 auto;
+		position: relative;
+		transition: background-color $animationTime;
+		width: $width;
+
+		&:before,
+		&:after {
+			background-color: $lineColor;
+			content: '';
+			display: block;
+			height: 2px;
+			position: absolute;
+			transition: transform $animationTime, top $animationTime, background-color $animationTime;
+			width: $width;
+			z-index: 5;
+		}
+
+		&:before { top: 4px; }
+		&:after { top: -4px; }
+
+		.offcanvas--open & {
+			background-color: transparent;
+
+			&:before,
+			&:after {
+				top: 0;
+				background-color: #000;
+			}
+
+			&:before {
+				transform: rotate(-45deg);
+			}
+
+			&:after {
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+// /burder icon
+
+.offcanvas {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 23.65%;
+
+	.offcanvas-teaser {
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 90px;
+	}
+
+	.offcanvas-toggle {
+		@include circle($circleSize);
+		background-color: $primaryHighlightColor;
+		line-height: $circleSize;
+		position: absolute;
+		right: $sidePadding;
+		text-decoration: none;
+		text-align: center;
+		z-index: 3;
+	}
+
+	.offcanvas__person {
+		@include person($personWidth);
+		opacity: 1;
+		padding-left: $sidePadding;
+		position: absolute;
+		right: $sidePadding;
+		transform: translateX(0);
+		transition: right $animationTime, transform $animationTime, opacity $animationTime;
+		z-index: 2;
+	}
+
+	.offcanvas-main {
+		color: #fff;
+		background: #212121 url('../images/offcancas-bg.jpeg') no-repeat center center;
+		background-size: cover;
+		bottom: 0;
+		left: 0;
+		overflow: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translateX(-100%);
+		transition: transform $animationTime;
+	}
+
+	&--open {
+		.offcanvas__person {
+			right: 100%;
+			margin-left: $sidePadding;
+			transform: translateX(0);
+			opacity: 0;
+		}
+
+		.offcanvas-main {
+			transform: translateX(0);
+		}
+	}
+
+	.offcanvas-header {
+		@include clearfix;
+		background-color: #212121;
+		height: 130px;
+		position: relative;
+	}
+
+	.offcanvas-body {
+		@include clearfix;
+		margin-top: 50px;
+		padding: 10px 20px 30px;
+
+		a {
+			color: #fff;
+		}
+	}
+}
+
+.oheader {
+	$leftPadding: 110px;
+
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+
+	&__person {
+		@include person($personWidth);
+		left: 0;
+		padding: 0 $sidePadding;
+		position: absolute;
+		top: -($personWidth/2);
+	}
+
+	&-social {
+		bottom: 0;
+		margin-bottom: 10px;
+		position: absolute;
+		left: $leftPadding;
+	}
+
+	&-name {
+		font-size: 20px;
+		font-weight: 300;
+		margin-top: 10px;
+		position: absolute;
+		top: 0;
+		left: $leftPadding;
+	}
+}
+
+.socials {
+	ul {
+		@include resetList;
+		@include clearfix;
+	}
+
+	li {
+		@include resetList;
+		@include circle($circleSize);
+
+		background-color: $secondaryHighlightColor;
+		float: left;
+		margin-right: 10px;
+
+		span {
+			display: block;
+			@include hiddenText;
+		}
+	}
+
+	a {
+		font-family: "FontAwesome";
+		color: #333;
+		display: block;
+		height: 100%;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+
+		&:before {
+			left: 0;
+			position: absolute;
+			right: 0;
+			text-align: center;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.main-menu {
+	margin-bottom: 30px;
+
+	ul, li {
+		@include resetList;
+	}
+
+	a {
+		color: #fff;
+		display: block;
+		font-size: 20px;
+		margin: 0.25em 0;
+		padding: 0.25em 0;
+	}
+}
+
+.widgets {
+	font-size: 14px;
+
+	.widget-wrap {
+		margin-bottom: 15px;
+	}
+	.widget-title {
+		font-size: 16px;
+		margin-bottom: 5px;
+	}
+}
+
+.widget {
+	ul, li {
+		@include resetList;
+	}
+	li {
+		margin-left: 10px;
+	}
+}
+
+.category-list {
+	@include resetList;
+	@include clearfix;
+
+	li {
+		@include resetList;
+		display: inline-block;
+		margin-right: 5px;
+
+		span {
+			font-size: 12px;
+		}
+	}
+	ul {
+		display: none;
+	}
+}
+
+.tag-list {
+	@include resetList;
+	@include clearfix;
+
+	li {
+		@include resetList;
+		display: inline-block;
+		margin-right: 5px;
+		
+		span {
+			font-size: 0.75%;
+		}
+	}
+}
+
+.main {
+	margin: 0 auto;
+	width: 48%;
+}
+
+.article {
+	margin: 20px 0 40px;
+
+	h1, h2, h3 {
+		font-weight: 300;
+		margin: 0;
+	}
+
+	&-header {
+		font-size: 32px;
+
+		a {
+			color: #313131;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	&-meta {
+		@include clearfix;
+		color: #919191;
+		font-size: 0.8em;
+
+		a {
+			color: #919191;
+		}
+
+		.article-date {
+			float: left;
+		}
+
+		.article-category {
+			float: left;
+
+			&:before {
+				margin-left: 5px;
+				content: '-';
+			}
+		}
+	}
+
+	&-entry {
+		color: #212121;
+
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&-more-link {
+		a {
+			border: 2px solid $primaryHighlightColor;
+			display: inline-block;
+			line-height: 1em;
+			padding: 6px 15px;
+			-webkit-border-radius: 15px;
+			border-radius: 15px;
+			background-color: transparent;
+			color: $primaryHighlightColor;
+			text-decoration: none;
+			transition: background-color $animationTime, color $animationTime;
+
+			&:hover {
+				background-color: $primaryHighlightColor;
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&-footer {
+		@include clearfix;
+	}
+
+	&-share-link {
+		float: right;
+	}
+
+	&-tag-list {
+		@include resetList;
+		font-size: 0.8em;
+
+		&-item {
+			@include resetList;
+			display: inline-block;
+			margin-right: 10px;
+
+			a {
+				color: #919191;
+
+				&:before {
+					content: '#';
+				}
+			}
+		}
+	}
+}
