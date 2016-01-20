@@ -1,0 +1,49 @@
+<section class="offcanvas">
+  <div class="offcanvas-teaser">
+    <a href="#" class="offcanvas-toggle">
+      <div class="navicon">
+        <div class="navicon-lines"></div>
+      </div>
+    </a>
+    <div class="offcanvas__person">
+      <% /* @TODO: Move to config */ %>
+      <img class="img-circle" src="images/person.jpg" alt="Martynas Bardauskas">
+    </div>
+  </div>
+  <div class="offcanvas-main">
+    <div class="offcanvas-header">
+      <div class="oheader">
+        <div class="oheader__person">
+          <% /* @TODO: Move to config */ %>
+          <img class="img-circle" src="images/person.jpg" alt="Martynas Bardauskas">
+        </div>
+        <div class="oheader-social">
+          <div class="socials">
+            <ul>
+              <% /* @TODO: Move to config */ %>
+              <li><a href="#" class="fa-linkedin"><span>LinkedIn</span></a></li>
+              <li><a href="#" class="fa-github-alt"><span>Github</span></a></li>
+              <li><a href="#" class="fa-twitter"><span>Twitter</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <% /* @TODO: Move to config */ %>
+        <h2 class="oheader-name">Martynas Bardauskas</h2>
+      </div>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="main-menu">
+        <ul>
+          <% for (var i in theme.menu){ %>
+          <li><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+          <% } %>
+        </ul>
+      </nav>
+      <div class="widgets">
+        <% theme.widgets.forEach(function(widget){ %>
+          <%- partial('_widget/' + widget) %>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</section>
