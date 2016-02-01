@@ -7,7 +7,7 @@
     </a>
     <div class="offcanvas__person">
       <% /* @TODO: Move to config */ %>
-      <img class="img-circle" src="images/person.jpg" alt="Martynas Bardauskas">
+      <%- image_tag('images/person.jpg', {alt: config.author, class: 'img-circle'}) %>
     </div>
   </div>
   <div class="offcanvas-main">
@@ -15,7 +15,7 @@
       <div class="oheader">
         <div class="oheader__person">
           <% /* @TODO: Move to config */ %>
-          <img class="img-circle" src="images/person.jpg" alt="Martynas Bardauskas">
+          <%- image_tag('images/person.jpg', {alt: config.author, class: 'img-circle'}) %>
         </div>
         <div class="oheader-social">
           <div class="socials">
