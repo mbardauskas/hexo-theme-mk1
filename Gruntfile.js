@@ -123,7 +123,7 @@ module.exports = function(grunt) {
 				},
 				files: [{
 					src: ['<%= config.temp %>/styles/**/*.css'],
-					dest: '<%= config.temp %>/styles/style.css'
+					dest: '<%= config.temp %>/styles/bundle.css'
 				}]
 			}
 		},
@@ -136,7 +136,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%= config.temp %>/styles',
-					src: ['style.css'],
+					src: ['bundle.css'],
 					dest: '<%= config.dist %>/css',
 					ext: '.css'
 				}]
