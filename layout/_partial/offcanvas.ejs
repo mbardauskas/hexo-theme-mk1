@@ -20,10 +20,9 @@
         <div class="oheader-social">
           <div class="socials">
             <ul>
-              <% /* @TODO: Move to config */ %>
-              <li><a href="#" class="fa-linkedin"><span>LinkedIn</span></a></li>
-              <li><a href="#" class="fa-github-alt"><span>Github</span></a></li>
-              <li><a href="#" class="fa-twitter"><span>Twitter</span></a></li>
+              <li><%- link_to(theme.linkedin, ' ', {external: true, class: 'fa-linkedin'}) %></li>
+              <li><%- link_to(theme.github, ' ', {external: true, class: 'fa-github-alt'}) %></li>
+              <li><%- link_to(theme.twitter, ' ', {external: true, class: 'fa-twitter'}) %></li>
             </ul>
           </div>
         </div>
