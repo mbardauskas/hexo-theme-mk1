@@ -4,6 +4,9 @@ menu:
   Archives: archives
 rss: /atom.xml
 
+# person image
+person_image: images/person.jpg
+
 # Content
 excerpt_link: Read More
 

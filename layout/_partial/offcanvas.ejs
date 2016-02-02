@@ -6,16 +6,14 @@
       </div>
     </a>
     <div class="offcanvas__person">
-      <% /* @TODO: Move to config */ %>
-      <%- image_tag('images/person.jpg', {alt: config.author, class: 'img-circle'}) %>
+      <%- image_tag(theme.person_image, {alt: config.author, class: 'img-circle'}) %>
     </div>
   </div>
   <div class="offcanvas-main">
     <div class="offcanvas-header">
       <div class="oheader">
         <div class="oheader__person">
-          <% /* @TODO: Move to config */ %>
-          <%- image_tag('images/person.jpg', {alt: config.author, class: 'img-circle'}) %>
+          <%- image_tag(theme.person_image, {alt: config.author, class: 'img-circle'}) %>
         </div>
         <div class="oheader-social">
           <div class="socials">
@@ -26,8 +24,7 @@
             </ul>
           </div>
         </div>
-        <% /* @TODO: Move to config */ %>
-        <h2 class="oheader-name">Martynas Bardauskas</h2>
+        <h2 class="oheader-name"><%- config.author %></h2>
       </div>
     </div>
     <div class="offcanvas-body">
