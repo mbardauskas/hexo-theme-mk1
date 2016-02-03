@@ -1,0 +1,40 @@
+@import "mixins";
+@import "variables";
+
+.archives-wrap {
+  a {
+    color: #333;
+
+    &:hover {
+      text-decoration: none;
+      color: $secondaryHighlightColor;
+    }
+  }
+
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+
+  .archive-year {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+}
+
+.archive {
+  &-article {
+    overflow: visible;
+    margin: 5px 0;
+
+    &-date {
+      color: #666;
+      float: left;
+      font-style: italic;
+      margin-right: 10px;
+    }
+
+    &-title {
+      font-weight: 700;
+    }
+  }
+}
