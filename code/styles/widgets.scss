@@ -1,0 +1,53 @@
+.widgets {
+  font-size: 14px;
+
+  .widget-wrap {
+    margin-bottom: 15px;
+  }
+  .widget-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+}
+
+.widget {
+  ul, li {
+    @include resetList;
+  }
+  li {
+    margin-left: 10px;
+  }
+}
+
+.category-list {
+  @include resetList;
+  @include clearfix;
+
+  li {
+    @include resetList;
+    display: inline-block;
+    margin-right: 5px;
+
+    span {
+      font-size: 12px;
+    }
+  }
+  ul {
+    display: none;
+  }
+}
+
+.tag-list {
+  @include resetList;
+  @include clearfix;
+
+  li {
+    @include resetList;
+    display: inline-block;
+    margin-right: 5px;
+
+    span {
+      font-size: 0.75%;
+    }
+  }
+}
