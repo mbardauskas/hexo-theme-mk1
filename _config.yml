@@ -12,11 +12,10 @@ excerpt_link: Read More
 
 # Sidebar
 widgets:
+- recent_posts
 - category
 - tag
 - tagcloud
-- archive
-- recent_posts
 
 # Miscellaneous
 google_analytics:
