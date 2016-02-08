@@ -1,6 +1,19 @@
 @import "mixins";
 @import "variables";
 
+@mixin parenthesize() {
+  margin-left: 3px;
+  opacity: 0.75;
+
+  &:before {
+    content: "(";
+  }
+
+  &:after {
+    content: ")";
+  }
+}
+
 .widgets {
   font-size: 14px;
 
@@ -31,16 +44,7 @@
   }
 
   &-count {
-    margin-left: 3px;
-    opacity: 0.75;
-
-    &:before {
-      content: "(";
-    }
-
-    &:after {
-      content: ")";
-    }
+    @include parenthesize;
   }
 }
 
@@ -53,8 +57,12 @@
     display: inline-block;
     margin-right: 5px;
 
-    span {
-      font-size: 0.75%;
+    &:after {
+      content: ',';
     }
+  }
+
+  &-count {
+    @include parenthesize;
   }
 }
