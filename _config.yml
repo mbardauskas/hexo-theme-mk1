@@ -15,7 +15,6 @@ widgets:
 - recent_posts
 - category
 - tag
-- tagcloud
 
 # Miscellaneous
 google_analytics:
