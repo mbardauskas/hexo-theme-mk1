@@ -6,7 +6,9 @@
       </div>
     </a>
     <div class="offcanvas__person">
-      <%- image_tag(theme.person_image, {alt: config.author, class: 'img-circle'}) %>
+      <a href="<%- url_for(' ') %>">
+        <%- image_tag(theme.person_image, {alt: config.author, class: 'img-circle'}) %>
+      </a>
     </div>
   </div>
   <div class="offcanvas-main">
