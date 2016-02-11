@@ -294,6 +294,36 @@ a:hover {
 	width: 58%;
 }
 
+@media (max-width: 723px) {
+	body {
+		min-width: 320px;
+	}
+
+	.offcanvas .offcanvas-toggle {
+		right: -50px;
+	}
+
+	.offcanvas {
+		transform: translateX(-100%);
+		transition: transform 0.2s;
+		width: 85%;
+	}
+	.offcanvas--open {
+		transform: translateX(0);
+
+		.offcanvas-toggle {
+			right: 10px;
+		}
+	}
+	.main {
+		margin: 0 20px 0 70px;
+		width: auto;
+	}
+	.offcanvas-teaser .offcanvas__person {
+		display: none;
+	}
+}
+
 @media (min-width: 724px) and (max-width: 940px) {
 	.offcanvas {
 		transform: translateX(-70%);
