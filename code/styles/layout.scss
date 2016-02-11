@@ -294,6 +294,17 @@ a:hover {
 	width: 58%;
 }
 
+@media (min-width: 724px) and (max-width: 940px) {
+	.offcanvas {
+		transform: translateX(-70%);
+		transition: transform 0.2s;
+		width: 45%;
+	}
+	.offcanvas--open {
+		transform: translateX(0);
+	}
+}
+
 @media (min-width: 1400px) and (max-width: 1600px) {
 	.offcanvas {
 		width: 23.65%;
