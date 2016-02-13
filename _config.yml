@@ -17,8 +17,8 @@ widgets:
 - tag
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-36958710-1
 favicon:
-linkedin: http://www.linkedin.com
-github: http://www.github.com
-twitter: http://www.twitter.com
+linkedin: https://lt.linkedin.com/in/mbardauskas
+github: https://github.com/mbardauskas
+twitter: https://twitter.com/mbardauskas
