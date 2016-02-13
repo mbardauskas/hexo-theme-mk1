@@ -1,3 +1,17 @@
+@import "_variables";
+
+@mixin bubble($size: $circleSize, $bg: $secondaryHighlightColor, $color: $defaultBlack) {
+	background-color: $bg;
+	border-radius: 50%;
+	color: $color;
+	display: inline-block;
+	height: $size;
+	margin: 5px 3px;
+	text-align: center;
+	width: $size;
+	transition: background-color 0.2s, color 0.2s;
+}
+
 @mixin absoluteBox {
 	bottom: 0;
 	left: 0;

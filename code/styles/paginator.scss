@@ -1,0 +1,31 @@
+@import "_variables";
+@import "mixins";
+
+.page-nav {
+  text-align: center;
+  margin: 30px 0;
+
+  .space,
+  .extend,
+  .page-number {
+    $size: 30px;
+    @include bubble($size);
+    font-size: 14px;
+    line-height: $size;
+    text-decoration: none;
+  }
+
+  .page-number {
+    &.current {
+      font-weight: 700;
+    }
+  }
+
+  .extend,
+  .page-number {
+    &:hover {
+      background-color: $primaryHighlightColor;
+      text-decoration: none;
+    }
+  }
+}
