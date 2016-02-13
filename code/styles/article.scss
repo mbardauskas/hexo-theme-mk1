@@ -49,6 +49,8 @@
 	}
 
 	&-entry {
+		font-size: 16px;
+		line-height: 1.6;
 		color: #212121;
 
 		a:hover {
@@ -102,5 +104,11 @@
 				}
 			}
 		}
+	}
+}
+
+@media (max-width: 723px) {
+	.article-entry {
+		font-size: 14px;
 	}
 }
