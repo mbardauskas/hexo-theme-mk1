@@ -107,8 +107,50 @@
 	}
 }
 
+.article-nav {
+	@include clearfix;
+	margin-top: 40px;
+}
+
+.article-nav-link-wrap {
+	color: #999;
+	width: 47.5%;
+	text-decoration: none;
+
+	&:hover {
+		color: #242424;
+		text-decoration: none;
+	}
+
+	strong {
+		color: #ccc;
+	}
+}
+
+.article-nav-newer {
+	float: left;
+	text-align: right;
+}
+
+.article-nav-older {
+	float: right;
+	text-align: left;
+}
+
 @media (max-width: 723px) {
 	.article-entry {
 		font-size: 14px;
+	}
+
+	.article-nav-link-wrap {
+		display: block;
+		float: none;
+		margin: 20px 0;
+		text-align: center;
+		width: auto;
+
+		strong {
+			text-align: center;
+		}
 	}
 }
